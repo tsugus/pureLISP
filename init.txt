@@ -1,5 +1,5 @@
 ;;;;; An Initial Program for "pure LISP" ;;;;;;
-; Version 0.5.6
+; Version 0.5.7
 ; (C) 2024-2025 Tsugu
 
 ; -------------------------------------
@@ -141,7 +141,7 @@
   (until (eq #0 i)
     (setq i (-1 i)
           r (cons (len (fibo i)) r)))
-) #8 #0)
+) #7 #0)
 
 (de fibo (n cont)
   (cond
@@ -157,7 +157,7 @@
   (until (eq #0 i)
     (setq i (-1 i)
           r (cons (len (fibo i #'(lambda (x) x))) r)))
-) #8 #0)
+) #7 #0)
 
 (de fibo (n)
   ((lambda (a1 a2)
@@ -173,7 +173,7 @@
   (until (eq #0 i)
     (setq i (-1 i)
           r (cons (len (fibo i)) r)))
-) #8 #0)
+) #7 #0)
 
 ; -----------------------------
 ; macro test
