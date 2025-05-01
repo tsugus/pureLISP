@@ -278,6 +278,7 @@ Index gc_while_f(Index args, Index env)
   args2 = gc_cloneS(args);
   ec;
   push(args2);
+  ec;
   flag = gc_eval(car(args2), env);
   ec;
   result = 0;
@@ -292,6 +293,7 @@ Index gc_while_f(Index args, Index env)
     args2 = gc_cloneS(args);
     ec;
     push(args2);
+    ec;
     flag = gc_eval(car(args2), env);
     ec;
   }
@@ -309,6 +311,7 @@ Index gc_until_f(Index args, Index env)
   args2 = gc_cloneS(args);
   ec;
   push(args2);
+  ec;
   flag = gc_eval(car(args2), env);
   ec;
   result = 0;
@@ -323,6 +326,7 @@ Index gc_until_f(Index args, Index env)
     args2 = gc_cloneS(args);
     ec;
     push(args2);
+    ec;
     flag = gc_eval(car(args2), env);
     ec;
   } while (!flag);
@@ -363,9 +367,11 @@ Index gc_function_f(Index args, Index env)
   indx = gc_getFreeCell();
   ec;
   push(indx);
+  ec;
   indx2 = gc_getFreeCell();
   ec;
   push(indx2);
+  ec;
   car(indx) = 5; /* funarg */
   cdr(indx) = gc_cloneS(args);
   car(indx2) = gc_cloneS(env);
@@ -451,6 +457,7 @@ Index gc_gensym_f(Index args, Index env)
   indx = gc_getFreeCell();
   ec;
   push(indx);
+  ec;
   sprintf(namebuf, "$%03d", i);
   car(indx) = gc_strToName(namebuf);
   cdr(indx) = gc_getFreeCell();

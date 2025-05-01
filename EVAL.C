@@ -178,7 +178,9 @@ Index gc_apply_lambda(Index func, Index args, Index env)
   Index result;
 
   push(func);
+  ec;
   push(args);
+  ec;
   switch (car(func))
   {
   case 2: /* lambda */
@@ -337,6 +339,7 @@ Index gc_bqev2(Index args, Index env)
   indx = gc_getFreeCell();
   ec;
   push(indx);
+  ec;
   for (;;)
   {
     car(indx) = car(args);
@@ -356,6 +359,7 @@ Index gc_bqapnd(Index args, Index env)
   int indxp;
 
   push(0); /* ダミー */
+  ec;
   indxp = sp - 1;
   for (;; args = cdr(args))
   {
@@ -425,6 +429,7 @@ Index gc_bqapnd(Index args, Index env)
         indx2 = gc_getFreeCell();
         ec;
         push(indx2);
+        ec;
         car(indx2) = gc_bqev(car(cdr(car(args))), env);
         ec;
         cdr(indx) = indx2;
@@ -436,6 +441,7 @@ Index gc_bqapnd(Index args, Index env)
         indx2 = gc_getFreeCell();
         ec;
         push(indx2);
+        ec;
         car(indx2) = gc_bqapnd(car(args), env);
         ec;
         cdr(indx) = indx2;
